@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+<!--    引入properties文件-->
+    <properties resource="jdbc.properties" />
+
+    <!--    配置log4j日志-->
+    <settings>
+        <setting name="logImpl" value="LOG4J"/>
+    </settings>
+
+       <!--        environments:配置多个连接数据库的环境
+                default:设置默认使用的环境的id
+                -->
+    <environments default="development">
+
+        <!--            environment:具体的环境
+                        id:唯一标识，不能重复-->
+        <environment id="development">
+
+            <transactionManager type="JDBC"/>
+            <dataSource type="POOLED">
+<!--                这里引用了配置文件jdbc.properties中的属性来配置数据库信息，也可以直接写-->
+                <property name="driver" value="${jdbc.driver}"/>
+                <property name="url" value="${jdbc.url}"/>
+                <property name="username" value="${jdbc.username}"/>
+                <property name="password" value="${jdbc.password}"/>
+            </dataSource>
+        </environment>
+    </environments>
+
+
+    <mappers>
+<!--        用来指定当前sql映射文件路径-->
+<!--        1.当在同一级目录下时（同在source下可以直接写.xml文件）
+           <mapper resource="Mapper/UserMapper.xml"/>-->
+        <!--           2. mapper代理方式（包扫描直接引入包中所有的sql映射文件路径）-->
+        <!--           3. mapper代理开发时 ,mapper接口和对应的sql映射文件需要在同一目录下（包名要相同）-->
+
+        <!--扫描mapper包下所有的xml-->
+        <package name="Dao/Mapper"/>
+<!--        注意：resource文件下若采用多包结构，用/分隔，例：org/mybatis/mapper,否则用.分隔会直接识别为包名-->
+    </mappers>
+
+
+</configuration>

@@ -1,0 +1,614 @@
+//out: ../css/noteDetail.css
+// 引入变量
+@maincolor:#f73b8f;
+@mainwidth:1000px;
+@hovercolor:#ff0000;
+
+* {
+  margin: 0 ;
+  padding: 0 ;
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
+}
+
+body {
+  font-family: Helvetica Neue,Tahoma,Arial,PingFangSC-Regular,Hiragino Sans GB,Microsoft Yahei,sans-serif;
+}
+
+a {
+  text-decoration: none !important;
+}
+
+img {
+  vertical-align: middle;
+  width: 100%;
+  height: 100%;
+}
+ul {
+  list-style: none;
+}
+
+.ellipsis-2 {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+// 公共部分
+// 整个页面向右边浮动多少
+.marginfloat{
+
+}
+
+// 最顶部的字体
+.comFont1{
+  // 灰色的小字体
+  font-family: MicrosoftYaHei;
+  font-size: 8px;
+  font-weight: normal;
+  font-stretch: normal;
+  letter-spacing: 1px;
+  color: #353434;
+  text-align: center;
+}
+// 标志符旁边的字体
+.comFont2{
+  font-family: MicrosoftYaHei;
+  font-size: 20px;
+  font-weight: normal;
+  font-stretch: normal;
+  letter-spacing: 1px;
+  color: #fafafa;
+  text-align: center;
+}
+// 标志符旁边的字体
+.comFont3{
+  font-family: MicrosoftYaHei;
+  font-size: 16px;
+  font-weight: normal;
+  font-stretch: normal;
+  letter-spacing: 1px;
+  color: #5d5b5b;
+  text-align: center;
+}
+
+.comFont4{
+  text-indent: 3em;
+  font-family: MicrosoftYaHei;
+  font-size: 15px;
+  font-weight: normal;
+  font-stretch: normal;
+  letter-spacing: 2px;
+  color: #050505;
+  line-height: 25px;
+}
+
+// 第三个盒子里面的字体
+.comFont5{
+  font-family: MicrosoftYaHei;
+  font-size: 20px;
+  font-weight: normal;
+  font-stretch: normal;
+  letter-spacing: 2px;
+  color: #f73b8f;
+  text-align: center;
+  font-weight: 500;
+  line-height: 35px;
+}
+.comFont6{
+  font-family: MicrosoftYaHei;
+  font-size: 14px;
+  font-weight: 500;
+  font-weight: normal;
+  font-stretch: normal;
+  letter-spacing: 2px;
+  color: #050505;
+}
+
+.comFont7{
+  font-family: MicrosoftYaHei;
+  font-size: 18px;
+  font-weight: normal;
+  font-stretch: normal;
+  letter-spacing: 1px;
+  font-weight: 550;
+  color: black;
+  // text-align: center;
+}
+
+.comFont8{
+  font-family: MicrosoftYaHei;
+  font-size: 18px;
+  font-weight: 600;
+  font-stretch: normal;
+  letter-spacing: 1px;
+  color: #666666;
+  text-align: center;
+}
+
+// 当地游
+.comFont9{
+  font-family: MicrosoftYaHei;
+  font-size: 13px;
+  font-weight: 600;
+  font-stretch: normal;
+  letter-spacing: 1px;
+  color: green;
+}
+
+.comFont10{
+  font-family: MicrosoftYaHei;
+  font-size: 14px;
+  font-weight: 500;
+  font-stretch: normal;
+  letter-spacing: 1px;
+  color: black;
+  text-align: center;
+}
+
+.comFont11{
+  font-family: MicrosoftYaHei;
+  font-size: 20px;
+  font-weight: 600;
+  font-stretch: normal;
+  letter-spacing: 1px;
+  color: black;
+}
+
+.comFont12{
+  font-family: MicrosoftYaHei;
+  font-size: 12px;
+  font-weight: 500;
+  font-stretch: normal;
+  color: black;
+  text-align: center;
+}
+.comFont13{
+  color:gray;
+  font-weight: 400;
+  font-family: MicrosoftYaHei;
+  font-size: 8px;
+  font-stretch: normal;
+  // letter-spacing: 1px;
+  text-align: center;
+}
+
+.comFont14{
+  color: #ff8800;
+  font-weight: 600;
+  font-family: MicrosoftYaHei;
+  font-size: 14px;
+  font-stretch: normal;
+}
+
+.comFont15{
+  font-family: MicrosoftYaHei;
+  font-stretch: normal;
+  // letter-spacing: 1px;
+  color: black;
+  // font-weight: 400;
+  font-size: 24px;
+}
+
+.comFont16{
+  font-family: MicrosoftYaHei;
+  font-stretch: normal;
+  color:#ff8800;
+  font-size: 24px !important;
+}
+.page{
+  // 定位
+  width: @mainwidth;
+  margin: 0 auto;
+  height: auto;
+  // 第一个盒子，也就是最上面的导航条--------------------------------------------------------
+  .div1{
+    // 布局
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color:#fafafa;
+    width: @mainwidth;
+    height: 22px;
+    margin: 0 auto;
+    .left ul{
+      // 盒子
+      width:200px;
+      height: 20px;
+      margin-top: 9px;
+      // background-color: skyblue;
+      list-style: none;
+      // 布局
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      .li1 a{
+        // 布局
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        // 盒子
+        width: 70px;
+        height: 20px;
+        margin-bottom: 3px;
+        // 字体
+
+        // 修饰
+        vertical-align: middle;
+        text-decoration: none;
+        .glyphicon-star{
+          color: #353434;
+        }
+      }
+      .li1 a span:hover{
+        color: @hovercolor;
+      }
+      .li2{
+        padding:0px 9px;
+        border-right: 2px solid #353434;
+      }
+      .li2 a:hover,
+      .li3 a:hover{
+        color: @hovercolor;
+      }
+
+    }
+    .right ul{
+      // 布局
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      // 盒子
+      width: 500px;
+      height: 20px;
+      margin-top: 9px;
+      // background-color: skyblue;
+      // 样式
+      list-style: none;
+      .li1 a:hover,
+      .li2 a:hover,
+      .li3 a:hover{
+        color: @hovercolor;
+      }
+      .li4{
+        a{
+          width: 34px;
+          height: 13px;
+          // background-color:pink;
+          .icon-weixin{
+            color: green;
+            font-size: 10px;
+          }
+        }
+      }
+      .li5{
+        a{
+          width: 34px;
+          height: 13px;
+          // background-color:pink;
+          .icon-xinlangweibo{
+            color: #f64242;
+            font-size: 10px;
+          }
+        }
+      }
+      .li6{
+        a{
+          width: 34px;
+          height: 13px;
+          // background-color:pink;
+          .icon-shouji{
+            color: #ee3388;
+            font-size: 10px;
+          }
+        }
+      }
+      .li7{
+        a{
+          width: 34px;
+          height: 13px;
+          // background-color:pink;
+          .icon-dianhua{
+            color: #ee3388;
+            font-size: 15px;
+          }
+        }
+      }
+      .li4 a .comFont1:hover,
+      .li5 a .comFont1:hover,
+      .li6 a .comFont1:hover,
+      .li7 a .comFont1:hover{
+        color: @hovercolor;
+      }
+    }
+  }
+
+  // 第二个盒子
+  //   第二个盒子，搜索框导航条-------------------------------
+  .div2{
+    // 布局
+    // display: flex;
+    // justify-content: space-between;
+    // align-items: center;
+    background-color:@maincolor;
+    width:@mainwidth;
+    margin: 0 auto;
+    height: 50px;
+    .left{
+      float: left;
+      display: flex;
+      justify-content: space-evenly;
+      align-items: center;
+      width: 150px;
+      height: 50px;
+      background-color: @maincolor;
+      img{
+        display: block;
+        width: 50px;
+        height: 50px;
+      }
+      .p1{
+        // 布局
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        // 盒子
+        height: 50px;
+        margin: 6px 0px 0px 0px ;
+        // 字体
+
+        .span1{
+          height: 25px;
+        }
+        .span2{
+          height: 25px;
+        }
+      }
+    }
+    .center1 ul{
+      // 布局
+      float: left;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      // background-color: aquamarine;
+      // 盒子
+      width: 250px;
+      height: 40px;
+      margin-top: 5px;
+      margin-left: 15px;
+      li a{
+        // background-color: blanchedalmond;
+        padding: 5px 5px;
+      }
+      li a:hover{
+        border-radius: 5px;
+        background-color:@hovercolor;
+      }
+    }
+    .center2{
+      float: left;
+      width: 300px;
+      height: 40px;
+      margin-left: 5px;
+    }
+    .right ul{
+      // 布局
+      float: left;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-left: 10px;
+      // background-color: aquamarine;
+      // 盒子
+      width: 250px;
+      height: 40px;
+      margin-top: 5px;
+      li a{
+        // background-color: blanchedalmond;
+        padding: 5px 5px;
+        .icon-denglu{
+          font-size: 18px;
+          color: #050505;
+        }
+      }
+      li a:hover{
+        border-radius: 5px;
+        background-color:@hovercolor;
+      }
+    }
+  }
+
+  // 用户信息模块
+  .div3{
+    // 布局
+    margin: 0 auto;
+    margin-top: 5px;
+    // 盒子
+    width: 1000px;
+    height: 90px;
+    // background-color: pink;
+    .left{
+      // 布局
+      float: left;
+      // 盒子
+      width: 90px;
+      height: 90px;
+      // background-color: skyblue;
+      img{
+        margin: 0 auto;
+        margin-top: 5px;
+        margin-left: 25px;
+        display: block;
+        width: 80px;
+        height: 80px;
+        border-radius: 40px;
+        padding: 2px;
+        border: 2px solid gray;
+      }
+    }
+    .right{
+      float: left;
+      height: 90px;
+      width: 910px;
+      // background-color:pink;
+      .title{
+        height: 45px;
+        width: 910px;
+        // background-color:palegreen;
+        padding-left: 30px;
+        // 字体
+        font-size: 28px;
+        font-weight: 500;
+      }
+      .biao1{
+        padding-left: 30px;
+        height: 25px;
+        width: 910px;
+        // background-color: peru;
+        ul{
+          display: block;
+          height: 30px;
+          width: 800px;
+          li{
+            width: 40px;
+            padding: 2px;
+            background-color: #ff6666;
+            text-align: center;
+            // margin-top: 8px;
+            border: 10px 10px 0px 10px;
+            // 字体
+            color:white;
+          }
+        }
+
+      }
+      .bottom{
+        height: 25px;
+        padding-left: 30px;
+        .left1{
+          float: left;
+          span{
+            height: 25px;
+            padding-right: 8px;
+            border-right: 2px solid gray;
+            // 字体
+            font-size: 10px;
+            color: gray;
+          }
+        }
+        .right1{
+          float: right;
+          margin-right: 10px;
+          .span1{
+            margin-right: 10px;
+          }
+        }
+      }
+    }
+  }
+
+  // 游记详情模块
+  .div4{
+    // 定位
+    // position: relative;
+    width: 790px;
+    // background-color: pink;
+    .navleft{
+      // 定位
+      position: fixed;
+      // background-color:palegreen;
+      left: 15px;
+      top: 165px;
+      width: 200px;
+      .ul1{
+        padding: 12px 0px;
+        border-radius: 15px;
+        width: 200px;
+        .mulu{
+          // margin-right: 10px;
+          width: 200px;
+          height: 10px;
+          line-height: 10px;
+          text-align: center;
+        }
+        li{
+          float: right;
+          // 盒子
+          margin-right: 10px;
+          width: 190px;
+          height: 30px;
+          // background-color:greenyellow;
+          a{
+            width: 190px;
+            height: 30px;
+            // background-color:palevioletred;
+            text-align: center;
+          }
+          a:hover{
+            color: #ff8800;
+            background-color:#ffffff;
+          }
+        }
+
+      }
+    }
+
+    .navright{
+      // 盒子
+      margin-top: 10px;
+      margin-left: 15px;
+      width: 790px;
+      // height: 400px;
+      // background-color: skyblue;
+      // 第一段
+      div{
+        .h1{
+
+        }
+        .p1{
+          padding-bottom: 30px;
+          border-bottom: 2px solid #c1c1c1;
+        }
+        .img{
+          display: inline-block;
+          transform: translateX(-6px);
+          width: 770px;
+          height: 400px;
+          background-color: palegreen;
+          margin-bottom: 10px;
+        }
+
+      }
+      div:last-child{
+        .p1{
+          border-bottom: none;
+        }
+      }
+    }
+  }
+
+  // 发表评论模块
+  .div5{
+
+  }
+
+  // 评论内容模块
+
+
+
+
+
+  .div10{
+    margin: 0 auto;
+    // margin-top: 800px;
+    width: 1000px;
+    height: 200px;
+    background-color:#ee3388;
+  }
+
+}

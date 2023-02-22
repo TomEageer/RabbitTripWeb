@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="Dao.Mapper.CollectionMapper">
+
+    <!--    设置resultMap来防止类属性名和表字段名不一致而无法导入数据到实体类中-->
+    <resultMap id="CollectionResultMap" type="Pojo.Collection">
+        <result column="service_id" property="serviceId"></result>
+        <result column="service_name" property="serviceName"></result>
+        <result column="collection_date" property="date"></result>
+        <!--        <result column="service_type" property="serviceType"></result>-->
+    </resultMap>
+    <delete id="collectionDelete">
+       Delete
+       from t_collection
+       where service_id = #{service.service_id} and user_id = #{service.user_id}
+    </delete>
+    <select id="collectionShow" resultMap="CollectionResultMap">
+        select DISTINCT t_collection.service_id,service_name,price,description,collection_date
+        from t_collection
+                 left join t_service
+                           on t_collection.service_id = t_service.service_id
+        where user_id = #{uid}
+        order by collection_date desc;
+    </select>
+    <select id="collectionSelectByPage" resultMap="CollectionResultMap">
+        select DISTINCT t_collection.service_id,service_name,price,description,collection_date
+        from t_collection
+                 left join t_service
+                           on t_collection.service_id = t_service.service_id
+        where user_id = #{uid}
+        order by collection_date
+        limit #{begin}, #{rows};
+    </select>
+</mapper>

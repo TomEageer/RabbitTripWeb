@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="Dao.Mapper.PictureMapper">
+
+
+<!--    设置resultMap来防止类属性名和表字段名不一致而无法导入数据到实体类中-->
+    <resultMap id="PictureResultMap" type="Pojo.Picture">
+        <result column="pic_id" property="pid"></result>
+        <result column="service_id" property="sid"></result>
+        <result column="note_id" property="nid"></result>
+        <result column="pic_type" property="type"></result>
+        <result column="pic_src" property="src"></result>
+    </resultMap>
+
+</mapper>

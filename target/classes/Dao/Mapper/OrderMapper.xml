@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="Dao.Mapper.OrderMapper">
+
+
+    <!--    设置resultMap来防止类属性名和表字段名不一致而无法导入数据到实体类中-->
+    <resultMap id="OrderResultMap" type="Pojo.Order">
+        <result column="user_id" property="uid"></result>
+        <result column="service_id" property="sid"></result>
+        <result column="order_date" property="orderDate"></result>
+    </resultMap>
+<!--    删除订单-->
+    <delete id="orderDelete">
+        delete
+        from t_order
+        where service_id = #{order.sid} and user_id = #{order.uid};
+    </delete>
+
+    <!--查询我的订单-->
+    <select id="selectOrderByUid" resultType="map">
+        select t_order.service_id, service_name, order_date, amount, total
+        from t_order,
+             t_service
+        where t_service.service_id = t_order.service_id
+          and user_id = #{uid}
+    </select>
+
+
+<!--刘怀键：分页查询订单信息-->
+    <select id="SelectByPage" resultMap="OrderResultMap">
+        select DISTINCT t_order.service_id,price,amount,total,service_name,t_order.order_date
+        from t_order
+                 left join t_service
+                           on t_order.service_id = t_service.service_id
+        where user_id = #{uid}
+        order by order_date desc
+        limit #{begin}, #{rows};
+    </select>
+
+</mapper>

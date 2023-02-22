@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="Dao.Mapper.NoteMapper">
+
+    <resultMap id="NoteResultMap" type="Pojo.Note">
+    </resultMap>
+
+    <resultMap id="UserResultMap" type="Pojo.User">
+        <result column="user_id" property="uid"></result>
+        <result column="user_img"  property="userImg"></result>
+    </resultMap>
+
+
+    <select id="SelectByPage" resultType="Pojo.Note">
+        select DISTINCT note_id,note_title,playdays,note_date
+        from t_note
+        where user_id = #{uid}
+        order by note_date desc
+        limit #{begin}, #{rows};
+    </select>
+    <select id="allSelectByPage" resultType="Pojo.Note">
+        select DISTINCT
+            note_id,note_title,playdays,note_date
+        from t_note
+        order by note_date desc
+        limit #{begin}, #{rows};
+    </select>
+
+</mapper>
